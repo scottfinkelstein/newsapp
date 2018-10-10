@@ -21,12 +21,13 @@ public class NewsActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(NewsActivity.this));
 
         List<News> newsList = new ArrayList<News>();
-        News welcome = new News();
-        welcome.title = "Welcome!";
-        News welcomeBack = new News();
-        welcomeBack.title = "Welcome Back!";
-        newsList.add(welcome);
-        newsList.add(welcomeBack);
+        newsList.add(new News("Item 1", "2018-07-05", "Description 1"));
+        newsList.add(new News("Item 2", "2018-07-05", "Description 2"));
+        newsList.add(new News("Item 3", "2018-07-05", "Description 3"));
+        newsList.add(new News("Item 4", "2018-07-05", "Description 4"));
+        newsList.add(new News("Item 5", "2018-07-05", "Description 5"));
+
+
 
         NewsAdapter adapter = new NewsAdapter(newsList);
         mRecyclerView.setAdapter(adapter);

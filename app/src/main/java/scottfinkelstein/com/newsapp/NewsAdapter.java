@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
@@ -35,8 +37,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
     public void onBindViewHolder(NewsAdapter.NewsHolder newsHolder, int position) {
         News news = mNewsList.get(position);
 
-        TextView textView = newsHolder.newsTitleTextView;
-        textView.setText(news.title);
+        TextView titleTextView = newsHolder.newsTitleTextView;
+        titleTextView.setText(news.title);
+
+        TextView pubDateTextView = newsHolder.newsPubDateTextView;
+        pubDateTextView.setText(news.pubDate);
     }
 
     @Override
@@ -46,11 +51,12 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
 
     public class NewsHolder extends RecyclerView.ViewHolder {
         public TextView newsTitleTextView;
+        public TextView newsPubDateTextView;
 
         public NewsHolder(View itemView) {
             super(itemView);
             newsTitleTextView = (TextView)itemView.findViewById(R.id.news_title);
-
+            newsPubDateTextView = (TextView)itemView.findViewById(R.id.news_pub_date);
         }
 
 
