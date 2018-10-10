@@ -12,7 +12,7 @@ public class NewsActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
 
-    private List<News> newsList;
+    private List<News> newsList = new ArrayList<News>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
