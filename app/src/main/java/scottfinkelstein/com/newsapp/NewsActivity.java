@@ -12,6 +12,8 @@ public class NewsActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
 
+    private List<News> newsList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +22,7 @@ public class NewsActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView)findViewById(R.id.news_recyclerview);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(NewsActivity.this));
 
-        List<News> newsList = new ArrayList<News>();
+
         newsList.add(new News("Item 1", "2018-07-05", "Description 1"));
         newsList.add(new News("Item 2", "2018-07-05", "Description 2"));
         newsList.add(new News("Item 3", "2018-07-05", "Description 3"));
