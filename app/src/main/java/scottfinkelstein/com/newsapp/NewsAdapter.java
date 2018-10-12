@@ -1,6 +1,7 @@
 package scottfinkelstein.com.newsapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
 import android.view.ContextMenu;
@@ -49,7 +50,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
         return mNewsList.size();
     }
 
-    public class NewsHolder extends RecyclerView.ViewHolder {
+    public class NewsHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView newsTitleTextView;
         public TextView newsPubDateTextView;
 
@@ -57,8 +58,16 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
             super(itemView);
             newsTitleTextView = (TextView)itemView.findViewById(R.id.news_title);
             newsPubDateTextView = (TextView)itemView.findViewById(R.id.news_pub_date);
+            itemView.setOnClickListener(this);
         }
 
+        @Override
+        public void onClick(View v) {
+            News news = mNewsList.get(getLayoutPosition());
+            Intent intent = new Intent(itemView.getContext(), NewsDetail.class);
+            intent.putExtra(NewsActivity.NEWS_EXTRA, news.desc);
+            itemView.getContext().startActivity(intent);
+        }
 
     }
 }

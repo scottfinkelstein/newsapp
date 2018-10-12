@@ -13,6 +13,7 @@ import java.util.List;
 public class NewsActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
+    public static final String NEWS_EXTRA = "com.scottfinkelstein.newsapp.NEWS_EXTRA";
 
     private String newsJson = "{\n" +
             "\t\"data\": [{\n" +
